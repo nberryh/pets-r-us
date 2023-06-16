@@ -9,6 +9,8 @@
 
 'use strict';
 
+import express from 'express';
+
 // Set value to the variables
 const express = require('express');
 const app = express();
