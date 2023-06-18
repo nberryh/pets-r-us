@@ -7,9 +7,7 @@
 ;==========================================
 */
 
-'use strict';
-
-import express from 'express';
+"use strict";
 
 // Set value to the variables
 const express = require('express');
@@ -26,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.set('view engine', 'ejs');
-app.set('view', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
