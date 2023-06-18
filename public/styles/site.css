@@ -1,0 +1,65 @@
+html, body  {
+    font-size: 20px;
+    background-color:  #2CA565;
+    border: 15px solid #2C2FA5;
+}
+.header {
+    text-align: center;
+}
+.header img {
+    width: 300px;
+    height: 200px;
+}
+h1 {    
+    font-family: 'Quicksand', sans-serif, "Times New Roman", 'Spectral', serif;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    line-height: 1.4em;
+    word-spacing: .2em;
+}
+#profile {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 10%;
+}
+.first {
+    border-style: none;
+    padding: 5px;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+    border-style: solid;
+    border-color: #2C2FA5;
+}
+.first img {
+    width: 300px;
+    height: 220px;
+}
+#list {
+    font-family: 'Spectral', serif;
+    font-weight: 400;
+    background-color: #2ca5a1;
+    text-align: center;
+    vertical-align: center;
+    text-transform: inherit;
+}
+figure {
+    text-align: center;
+}
+#address  {
+    font-family: 'Spectral', serif;
+    font-weight: 400;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: text-bottom;
+    word-spacing: .5em;
+}
+footer {
+    font-family: 'Quicksand', sans-serif, "Times New Roman", 'Spectral', serif;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
