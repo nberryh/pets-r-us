@@ -26,6 +26,14 @@ app.get('/grooming', (req, res) => {
     res.render('grooming');
 });
 
+app.get('/boarding', (req, res) => {
+    res.render('boarding');
+});
+
+app.get('/training', (req, res) => {
+    res.render('training');
+});
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 

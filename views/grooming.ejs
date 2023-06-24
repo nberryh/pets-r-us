@@ -7,15 +7,8 @@
         <meta name="viewport"content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/styles/site.css">
     </head>
-
     <body>
-        <header>
-            <h1>Pets-R-Us - Grooming</h1>
-            <ul>
-                <li><a href="index.ejs">Home</a></li>
-                <li><a href="grooming.ejs">Grooming</a></li>
-            </ul>
-        </header>
+        <%- include('header') %>
         <main>
             <h2>Grooming Services</h2>
             <p>At Pets-R-Us, we offer a wide range of professional grooming services to keep your pets looking and feeling their best. Our experienced groomers are dedicated to providing exceptional care and attention to detail. Below are some of our popular grooming services:</p>
@@ -43,8 +36,6 @@
                 </li>
             </ul>
         </main>
-        <footer>
-            <p>&copy; 2023 Pets-R-Us. All rights reserved</p>
-        </footer>
+        <%- include('footer') %>
     </body>
 </html>
