@@ -13,6 +13,8 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 const Customer = require('./models/customer');
 
 const app = express();
@@ -62,6 +64,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 mongoose.connect(CONN, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
