@@ -13,7 +13,6 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 const Customer = require('./models/customer');
 
@@ -21,6 +20,12 @@ const app = express();
 
 const CONN = 'mongodb+srv://nberryh:iT2K_5_HBPzX82N@cluster0.wmphxtw.mongodb.net/';
 const PORT = process.env.PORT || 3000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Renders the index.ejs view
 app.get('/', (req, res) => {
@@ -43,29 +48,34 @@ app.get('/registration', (req, res) => {
     res.render('registration');
 })
 
+app.get('/customer-list', (req, res) => {
+    Customer.find()
+        .then((customers) => {
+            res.render('customer-list', { customers });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.render('/');
+        });
+});
 
 app.post('/registration', (req, res) => {
     const { customerId, email } = req.body;
 
-    const newCustomer = new Customer({ customerId, email });
+    const newCustomer = new Customer({ 
+        customerId: customerId,
+        email: email
+    });
 
-    newCustomer.save((err) => {
-        if (err) {
+    newCustomer.save()
+        .then(() => {
+            res.render('/');
+        })
+        .catch((err) => {
             console.error(err);
             res.redirect('/registration');
-        } else {
-            res.render('/');
-        }
-    });
+        });
 });
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 mongoose.connect(CONN, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {

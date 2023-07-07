@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Pets-R-Us - Customer List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/site.css">
+    </head>
+    <body>
+        
+        <%- include('header') %>
+
+        <main>
+            <h1>Customer List</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% customers.forEach((customer) => { %>
+                        <tr>
+                            <td><%= customer.customerId %></td>
+                            <td><%= customer.email %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </main>
+
+        <%- include('footer') %>
+
+    </body>
+
+</html>
