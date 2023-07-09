@@ -69,7 +69,8 @@ app.post('/registration', (req, res) => {
 
     newCustomer.save()
         .then(() => {
-            res.render('/');
+            console.log('Customer saved successfully');
+            res.redirect('/');
         })
         .catch((err) => {
             console.error(err);
