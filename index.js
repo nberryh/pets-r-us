@@ -59,6 +59,11 @@ app.get('/customer-list', (req, res) => {
         });
 });
 
+app.get('/appointment', (req, res) => {
+    const services = require('./public/data/services.json').services;
+    res.render('appointment', { services  });
+});
+
 app.post('/registration', (req, res) => {
     const { customerId, email } = req.body;
 
@@ -75,6 +80,27 @@ app.post('/registration', (req, res) => {
         .catch((err) => {
             console.error(err);
             res.redirect('/registration');
+        });
+});
+
+app.post('/appointment', (req, res) => {
+    const { username, lastName, email, service } = req.body;
+
+    const newAppointment = new Appointment({
+        userName,
+        firstName,
+        lastName,
+        email,
+        service
+    });
+
+    newAppointment.save()
+        .then(() => {
+            res.redirect('/');
+        })
+        .catch((err) => {
+            console.error(err);
+            res.redirect('/appointment');
         });
 });
 
