@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const appointmentSchema = new mongoose.Schema({
-    userName: {
-        type: String,
-        required: true
-    },
     firstName: {
         type: String,
         required: true
