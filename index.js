@@ -14,6 +14,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
+const Appointment = require('./models/appointment');
 const Customer = require('./models/customer');
 
 const app = express();
@@ -84,10 +85,9 @@ app.post('/registration', (req, res) => {
 });
 
 app.post('/appointment', (req, res) => {
-    const { username, lastName, email, service } = req.body;
+    const { firstName, lastName, email, service } = req.body;
 
     const newAppointment = new Appointment({
-        userName,
         firstName,
         lastName,
         email,
