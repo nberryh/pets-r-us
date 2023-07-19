@@ -49,6 +49,10 @@ app.get('/registration', (req, res) => {
     res.render('registration');
 })
 
+app.get('/my-appointments', (req, res) => {
+    res.render('my-appointments');
+})
+
 app.get('/customer-list', (req, res) => {
     Customer.find()
         .then((customers) => {
@@ -63,6 +67,19 @@ app.get('/customer-list', (req, res) => {
 app.get('/appointment', (req, res) => {
     const services = require('./public/data/services.json').services;
     res.render('appointment', { services  });
+});
+
+app.get('/api/appointments', (req, res) => {
+    const { email } = req.query;
+
+    Appointment.find({ email })
+        .then((appointments) => {
+            res.json(appointments);
+        })
+        .catch((error) => {
+            console.error('Error fetching appointments:', error);
+            res.status(500).json({ error: 'An error occurred while fetching appointments.' });
+        });
 });
 
 app.post('/registration', (req, res) => {
