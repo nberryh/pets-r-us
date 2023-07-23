@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "render-deploy": "node index.js"
+    "render-deploy": "ng build --configuration=production"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,17 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "engines": {
+    "node": "^16.16.0",
+    "npm": "^8.11.0"
+  },
+  "budgets": [
+    {
+      "type": "initial",
+      "maximumWarning": "2mb",
+      "maximumError": "5mb"
+    }
+  ]
 }
+
