@@ -13,6 +13,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const fs = require('fs');
 
 const Appointment = require('./models/appointment');
 const Customer = require('./models/customer');
